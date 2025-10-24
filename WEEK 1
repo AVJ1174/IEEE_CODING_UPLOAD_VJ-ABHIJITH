@@ -1,0 +1,25 @@
+Q E1 ) 
+Answer) 
+
+import java.util.* ;
+class Solution {
+    public static int climbStairs(int n) {
+        if (n==1) {
+            return 1;
+        }
+        if (n==2) {
+            return 2 ;
+        }
+        return climbStairs(n-1) + climbStairs(n-2) ;
+    }
+    public static void main(String s [] ) {
+        Scanner input = new Scanner(System.in) ;
+        System.out.println("Enter Number of Stairs to Climb") ;
+        int n=input.nextInt() ;
+        int ways=climbStairs(n);
+        System.out.println("The number of ways in which we can climb "+n+" stairs is: "+ways) ;
+    }
+}
+
+Q E2) 
+Answer) 
