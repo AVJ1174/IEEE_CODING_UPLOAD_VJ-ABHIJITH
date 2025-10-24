@@ -20,6 +20,3 @@ class Solution {
         System.out.println("The number of ways in which we can climb "+n+" stairs is: "+ways) ;
     }
 }
-
-Q E2) 
-Answer) 
