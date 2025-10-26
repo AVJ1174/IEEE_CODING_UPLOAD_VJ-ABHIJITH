@@ -20,3 +20,42 @@ class Solution {
         System.out.println("The number of ways in which we can climb "+n+" stairs is: "+ways) ;
     }
 }
+
+Q E2 )
+Answer ) 
+
+import java.util.* ;
+class SolutionE2 {
+    public static int[] smallerNumbersThanCurrent( int [] nums) {
+        int count = 0;
+        int[] counter = new int[nums.length] ;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[j] != nums[i] && nums[j] < nums[i])
+                    count++;
+            }
+            counter[i] = count;
+            count=0;
+        }
+        return counter;
+    }
+
+    public static void main (String S[] ) {
+        System.out.println("Enter Number of elements in Array :");
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        System.out.println("Enter "+ n +" Elements : ");
+        int [] arr = new int[n] ;
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+        System.out.println("Array Has been Created");
+        int[] answer = smallerNumbersThanCurrent(arr);
+        System.out.println("The Array of Number of smaller numbers of each element in entered Array is : " + Arrays.toString(answer));
+
+    }
+}
+
+
+
+
