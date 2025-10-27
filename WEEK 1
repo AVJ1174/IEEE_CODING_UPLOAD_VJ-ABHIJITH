@@ -56,6 +56,44 @@ class SolutionE2 {
     }
 }
 
+Q E-3)
+Answer ) 
+
+import java.util.* ;
+public class E3{
+    public static int[] twoSum(int [] nums , int target){
+        int x = nums.length;
+        int [] result = new int[2];
+        for(int i = 0 ; i<x;i++){
+            for(int j=i+1;j<x;j++){
+                if(nums[i]+nums[j]==target){
+                    result[0]=i ;
+                    result[1]=j ;
+                }
+            }
+        }
+        return result ;
+    }
+    public static void main(String s[]){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter number of elements: ");
+        int n = input.nextInt();
+        System.out.println("Enter "+n+" Elements:");
+        int [] nums = new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]= input.nextInt();
+        }
+        System.out.println("Enter Target : ") ;
+        int target= input.nextInt();
+        int [] result = twoSum(nums,target) ;
+        if(result!=null){
+            System.out.println("The position of the 2 elements is : "+ Arrays.toString(result)) ;
+        }
+        else {
+            System.out.println("No 2 elements add up to the target");
+        }
+    }
+}
 
 
 
