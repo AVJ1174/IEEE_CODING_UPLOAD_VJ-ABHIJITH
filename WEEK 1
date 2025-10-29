@@ -95,5 +95,67 @@ public class E3{
     }
 }
 
+Q E-4 )
+Answer ) 
+import java.util.ArrayList;
+import java.util.Scanner;
 
+public class E4{
+    public static int maxProfit(int [] prices){
+        int min=prices[0];
+        int minIndex=0;
+        for (int i=0;i< prices.length;i++){
+            if (prices[i]<min){
+                min=prices[i];
+                minIndex=i ;
+            }
+        }
+        int max=prices[minIndex];
+        for(int j=minIndex;j<prices.length;j++){
+            if(prices[j]>max){
+                max=prices[j] ;
+            }
+        }
+        return max-min ;
+    }
+    public static void main(String s[]){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Number of elements in the prices list: ");
+        int n = input.nextInt();
+        System.out.println("Enter "+n+" Elements");
+        int [] prices = new int[n] ;
+        for(int i=0;i<n;i++){
+            prices[i]= input.nextInt() ;
+        }
+        int profit = maxProfit(prices) ;
+        System.out.println("The max profit you can gain is : "+profit) ;
+    }
+}
+
+Q E-5 )
+Answer )
+
+import java.util.Scanner;
+
+class E5{
+    public static boolean isUgly(int n){
+        if(n<=0){
+            return false ;
+        }
+        int [] factor={2,3,5} ;
+        for(int i=0;i< factor.length;i++){
+            while(n % factor[i]==0){
+                n=n/factor[i] ;
+            }
+        }
+        return n==1 ;
+    }
+    public static void main(String s[]){
+        System.out.println("Enter The Number: ") ;
+        Scanner input = new Scanner(System.in);
+        int n=input.nextInt() ;
+        System.out.println(isUgly(n));
+    }
+
+}
 
