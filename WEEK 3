@@ -1,5 +1,6 @@
 Q) E-1
 ans ) 
+(used same Node structure from previous code & the creation part as well as display function) 
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -59,4 +60,51 @@ public class W3E1 {
         System.out.println("The Linked List after deleting duplicates : ") ;
         display(head) ;
     }
+}
+
+
+Q) E-2
+ans) 
+import java.util.Scanner;
+public class W3E2 {
+    public static Node insertionSort(Node head){
+        if(head==null || head.next==null) return head ;
+        Node dummy = new Node(-1) ;
+        Node ans = dummy ;
+        Node cur = head ;
+        while(cur!=null){
+                Node temp = ans ;
+                while(temp.next!=null){
+                    if(temp.next.data< cur.data){
+                        temp=temp.next;
+                    }
+                    else{
+                        break ;
+                    }
+               }
+                if(temp.next==null){
+                    Node nbr=cur.next ;
+                    temp.next=cur;
+                    cur.next=null ;
+                    cur=nbr ;
+                }
+                else{
+                    Node nbr = cur.next ;
+                    Node tempnbr=temp.next ;
+                    temp.next = cur ;
+                    cur.next=tempnbr ;
+                    cur=nbr;
+                }
+        }
+        return ans.next ;
+    }
+    public static void main (String s[]){
+        Scanner input = new Scanner(System.in) ;
+        System.out.println("Enter Number of Integers: ") ;
+        int n = input.nextInt();
+        Node head = W3E1.createLinkedList(n);
+        Node ans =insertionSort(head);
+        W3E1.display(ans);
+    }
+
 }
