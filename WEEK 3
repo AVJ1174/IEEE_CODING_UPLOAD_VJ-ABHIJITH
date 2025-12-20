@@ -108,3 +108,71 @@ public class W3E2 {
     }
 
 }
+
+
+
+Q)E-3 
+ans ) 
+
+import java.util.Scanner;
+
+public class W3E3 {
+    static int front = 0 ;
+    static int rear =  0 ;
+    static int size = 0 ;
+    static int[] queue ;
+    public static int[] myCircularQ(int k){
+        queue = new int[k] ;
+        front = 0 ;
+        rear  = 0 ;
+        return queue ;
+    }
+    public static boolean enQ(int value){
+        if(isFull()){
+            System.out.println("Queue is full");
+            return false ;
+        }
+        queue[rear]=value ;
+        rear=(rear+1)%size ;
+        System.out.println("Element enqueued") ;
+        return true ;
+    }
+    public static int deQ(){
+        if(isEmpty()){
+            System.out.println("Queue is Empty");
+            return 0 ;
+        }
+        int item = queue[front];
+        front=(front+1)%size ;
+        return item ;
+    }
+    public static int Front(){
+        if(isEmpty()) return -1 ;
+        else return (queue[front]);
+    }
+    public static int Rear(){
+        if(isEmpty()) return -1 ;
+        else return (queue[rear]);
+    }
+    public static boolean isEmpty(){
+        return(front==rear);
+    }
+    public static boolean isFull(){
+        return((rear+1)%size==front);
+    }
+    public static void main(String s[]){
+        System.out.println("Enter size of Queue :");
+        Scanner input = new Scanner(System.in) ;
+        size= input.nextInt();
+        myCircularQ(size) ;
+        for(int i=0;i<size;i++){
+            System.out.println("Enter Element "+(i+1));
+            int item = input.nextInt();
+            enQ(item) ;
+        }
+        for(int i=0;i<size;i++){
+            int x = deQ();
+            System.out.print(x+" ");
+        }
+    }
+}
