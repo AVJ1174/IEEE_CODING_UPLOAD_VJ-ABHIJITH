@@ -176,3 +176,47 @@ public class W3E3 {
         }
     }
 }
+Q E-4) 
+answer ) 
+import java.util.Scanner;
+import java.util.Stack;
+
+public class W3E4 {
+    public static void main(String s[]) {
+        System.out.println("Enter number of asteroids");
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] list = new int[n];
+        System.out.println("Enter asteroids");
+        for (int i = 0; i < n; i++) {
+            list[i] = input.nextInt();
+        }
+        Stack<Integer> Stack = new Stack<>();
+        for (int i = 0; i < n; i++){
+            int temp = list[i] ;
+            boolean alive = true ;
+            while( alive && !Stack.empty() && Stack.peek()>0 && temp <0 ) {
+                if(Math.abs(Stack.peek())<Math.abs(temp)){
+                    Stack.pop() ;
+                }
+                else if(Math.abs(Stack.peek())==Math.abs(temp)){
+                    Stack.pop() ;
+                    alive=false ;
+                }
+                else{
+                    alive=false ;
+                }
+            }
+            if(alive){
+                Stack.push(temp);
+
+            }
+
+        }
+        for(int x : Stack){
+            System.out.println(x+" ");
+        }
+
+
+    }
+}
