@@ -220,3 +220,24 @@ public class W3E4 {
 
     }
 }
+Q) E-5 
+answ) 
+import java.util.Scanner;
+
+public class W3E5 {
+    public static int findWinner(int n, int k){
+        int win=0;
+        for(int i=2;i<=n;i++){
+            win=(win+k)%i ;
+        }
+        return win+1 ;
+    }
+    public static void main(String s[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter n & k ");
+        int n = input.nextInt();
+        int k = input.nextInt();
+        int answer = findWinner(n, k);
+        System.out.println("The winner is : " + answer);
+    }
+}
